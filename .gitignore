@@ -32,5 +32,11 @@
 # Ignore master key for decrypting credentials and more.
 /config/master.key
 
-# Ignore config file for Figaro
+# Ignore application configuration
 /config/application.yml
+
+# Ignore certificate files
+/config/certs/*
+
+# Ignore JetBrains Datasource files
+.idea/
