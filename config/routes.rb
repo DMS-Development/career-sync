@@ -2,6 +2,9 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :users, only: [:create, :update, :destroy] do
+        member do
+          post :logout
+        end
         resources :profiles, only: [:create, :update]
         resources :resumes, only: [:create, :update]
         resources :job_applications, only: [:create, :update, :index]
@@ -9,6 +12,7 @@ Rails.application.routes.draw do
       end
       resources :jobs, only: [:index, :show, :create, :update, :destroy]
       post '/login', to: 'users#login'
+      post '/forgot_password', to: 'users#forgot_password'
     end
   end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
