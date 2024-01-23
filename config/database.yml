@@ -22,12 +22,18 @@ default: &default
 
 development:
   <<: *default
-  database: <%= Figaro.env.DEV_DB_NAME %>
-  username: <%= Figaro.env.DEV_DB_USER %>
-  password: <%= Figaro.env.DEV_DB_PASSWORD %>
-  host: <%= Figaro.env.DEV_DB_HOST %>
-  port: <%= Figaro.env.DEV_DB_PORT %>
-
+#  database: <%#= Figaro.env.DEV_DB_NAME %>
+#  username: <%#= Figaro.env.DEV_DB_USER %>
+#  password: <%#= Figaro.env.DEV_DB_PASSWORD %>
+#  host: <%#= Figaro.env.DEV_DB_HOST %>
+#  port: <%#= Figaro.env.DEV_DB_PORT %>
+  host: <%= Figaro.env.SUPABASE_DB_HOST %>
+  database: <%= Figaro.env.SUPABASE_DB_NAME %>
+  username: <%= Figaro.env.SUPABASE_DB_USERNAME %>
+  password: <%= Figaro.env.SUPABASE_DB_PASSWORD %>
+  port: <%= Figaro.env.SUPABASE_DB_PORT %>
+  sslmode: <%= Figaro.env.SUPABASE_SSL_MODE %>
+  sslrootcert: <%= Figaro.env.SUPABASE_DB_SSL_CERT %>
 
   # The specified database role being used to connect to PostgreSQL.
   # To create additional roles in PostgreSQL see `$ createuser --help`.
