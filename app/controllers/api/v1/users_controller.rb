@@ -1,4 +1,13 @@
 class Api::V1::UsersController < ApplicationController
+  def login
+    response = SupabaseAuthService.login(login_params)
+
+    if response[:error]
+      render json: { error: response[:error], detailed_error: response[:detailed_error] }, status: :unprocessable_entity
+    else
+      render json: { message: 'User logged in successfully', user: response }, status: :ok
+    end
+  end
   def create
     signup_result = SupabaseAuthService.signup(allowed_user_params)
 
@@ -30,4 +39,8 @@ private
 
 def allowed_user_params
   params.require(:user).permit(:email, :password, :role, :phone)
+end
+
+def login_params
+  params.require(:user).permit(:email, :password)
 end
