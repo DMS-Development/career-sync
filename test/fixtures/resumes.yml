@@ -1,0 +1,24 @@
+# == Schema Information
+#
+# Table name: resumes
+#
+#  id          :bigint           not null, primary key
+#  user_id     :bigint           not null
+#  file_path   :string
+#  file_name   :string
+#  upload_date :datetime
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#
+
+one:
+  user: one
+  file_path: MyString
+  file_name: MyString
+  upload_date: 2024-01-22 16:34:30
+
+two:
+  user: two
+  file_path: MyString
+  file_name: MyString
+  upload_date: 2024-01-22 16:34:30

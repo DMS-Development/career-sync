@@ -1,0 +1,27 @@
+# == Schema Information
+#
+# Table name: jobs
+#
+#  id           :bigint           not null, primary key
+#  title        :string
+#  description  :text
+#  location     :string
+#  posted_date  :datetime
+#  closing_date :datetime
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#
+
+one:
+  title: MyString
+  description: MyText
+  location: MyString
+  posted_date: 2024-01-22 16:34:44
+  closing_date: 2024-01-22 16:34:44
+
+two:
+  title: MyString
+  description: MyText
+  location: MyString
+  posted_date: 2024-01-22 16:34:44
+  closing_date: 2024-01-22 16:34:44

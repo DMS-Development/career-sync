@@ -1,0 +1,35 @@
+# == Schema Information
+#
+# Table name: profiles
+#
+#  id           :bigint           not null, primary key
+#  user_id      :bigint           not null
+#  first_name   :string
+#  last_name    :string
+#  phone_number :string
+#  educations   :json
+#  experiences  :json
+#  skills       :json
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#
+
+one:
+  user: one
+  first_name: MyString
+  last_name: MyString
+  phone_number: MyString
+  profile_picture: MyString
+  educations: 
+  experiences: 
+  skills: 
+
+two:
+  user: two
+  first_name: MyString
+  last_name: MyString
+  phone_number: MyString
+  profile_picture: MyString
+  educations: 
+  experiences: 
+  skills: 

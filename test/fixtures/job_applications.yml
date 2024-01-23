@@ -1,0 +1,24 @@
+# == Schema Information
+#
+# Table name: job_applications
+#
+#  id                 :bigint           not null, primary key
+#  user_id            :bigint           not null
+#  job_id             :bigint           not null
+#  application_status :string
+#  application_date   :datetime
+#  created_at         :datetime         not null
+#  updated_at         :datetime         not null
+#
+
+one:
+  user: one
+  job: one
+  application_status: MyString
+  application_date: 2024-01-22 16:34:56
+
+two:
+  user: two
+  job: two
+  application_status: MyString
+  application_date: 2024-01-22 16:34:56

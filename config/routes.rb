@@ -1,4 +1,15 @@
 Rails.application.routes.draw do
+  namespace :api do
+    namespace :v1 do
+      resources :users, only: [:create, :update, :destroy] do
+        resources :profiles, only: [:create, :update]
+        resources :resumes, only: [:create, :update]
+        resources :job_applications, only: [:create, :update, :index]
+        resources :addresses, only: [:create, :update, :destroy]
+      end
+      resources :jobs, only: [:index, :show, :create, :update, :destroy]
+    end
+  end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
@@ -7,4 +18,5 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
+
 end
