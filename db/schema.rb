@@ -10,12 +10,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_01_22_234417) do
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
+ActiveRecord::Schema[7.1].define(version: 2024_01_23_053951) do
+  create_schema "auth"
+  create_schema "extensions"
+  create_schema "graphql"
+  create_schema "graphql_public"
+  create_schema "pgbouncer"
+  create_schema "pgsodium"
+  create_schema "pgsodium_masks"
+  create_schema "realtime"
+  create_schema "storage"
+  create_schema "vault"
 
-  create_table "addresses", force: :cascade do |t|
-    t.bigint "user_id", null: false
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "pg_graphql"
+  enable_extension "pg_stat_statements"
+  enable_extension "pgcrypto"
+  enable_extension "pgjwt"
+  enable_extension "pgsodium"
+  enable_extension "plpgsql"
+  enable_extension "supabase_vault"
+  enable_extension "uuid-ossp"
+
+  create_table "addresses", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "user_id", null: false
     t.string "street"
     t.string "streetTwo"
     t.string "city"
@@ -27,9 +45,9 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_22_234417) do
     t.index ["user_id"], name: "index_addresses_on_user_id"
   end
 
-  create_table "job_applications", force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.bigint "job_id", null: false
+  create_table "job_applications", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "user_id", null: false
+    t.uuid "job_id", null: false
     t.string "application_status"
     t.datetime "application_date"
     t.datetime "created_at", null: false
@@ -38,7 +56,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_22_234417) do
     t.index ["user_id"], name: "index_job_applications_on_user_id"
   end
 
-  create_table "jobs", force: :cascade do |t|
+  create_table "jobs", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "title"
     t.text "description"
     t.string "location"
@@ -49,8 +67,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_22_234417) do
     t.index ["title"], name: "index_jobs_on_title"
   end
 
-  create_table "profiles", force: :cascade do |t|
-    t.bigint "user_id", null: false
+  create_table "profiles", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "user_id", null: false
     t.string "first_name"
     t.string "last_name"
     t.string "phone_number"
@@ -62,8 +80,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_22_234417) do
     t.index ["user_id"], name: "index_profiles_on_user_id"
   end
 
-  create_table "resumes", force: :cascade do |t|
-    t.bigint "user_id", null: false
+  create_table "resumes", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "user_id", null: false
     t.string "file_path"
     t.string "file_name"
     t.datetime "upload_date"
@@ -72,12 +90,12 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_22_234417) do
     t.index ["user_id"], name: "index_resumes_on_user_id"
   end
 
-  create_table "users", force: :cascade do |t|
+  create_table "users", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "email"
-    t.string "password_digest"
     t.string "role"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "phone_number"
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 

@@ -2,8 +2,8 @@
 #
 # Table name: resumes
 #
-#  id          :bigint           not null, primary key
-#  user_id     :bigint           not null
+#  id          :uuid             not null, primary key
+#  user_id     :uuid             not null
 #  file_path   :string
 #  file_name   :string
 #  upload_date :datetime

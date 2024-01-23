@@ -2,12 +2,12 @@
 #
 # Table name: users
 #
-#  id              :bigint           not null, primary key
-#  email           :string
-#  password_digest :string
-#  role            :string
-#  created_at      :datetime         not null
-#  updated_at      :datetime         not null
+#  id           :uuid             not null, primary key
+#  email        :string
+#  role         :string
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#  phone_number :string
 #
 require "test_helper"
 

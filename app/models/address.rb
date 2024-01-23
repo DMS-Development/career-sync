@@ -2,8 +2,8 @@
 #
 # Table name: addresses
 #
-#  id         :bigint           not null, primary key
-#  user_id    :bigint           not null
+#  id         :uuid             not null, primary key
+#  user_id    :uuid             not null
 #  street     :string
 #  streetTwo  :string
 #  city       :string

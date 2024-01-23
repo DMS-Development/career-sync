@@ -29,7 +29,7 @@ development:
 #  port: <%#= Figaro.env.DEV_DB_PORT %>
   host: <%= Figaro.env.SUPABASE_DB_HOST %>
   database: <%= Figaro.env.SUPABASE_DB_NAME %>
-  username: <%= Figaro.env.SUPABASE_DB_USERNAME %>
+  username: <%= Figaro.env.SUPABASE_DB_USER %>
   password: <%= Figaro.env.SUPABASE_DB_PASSWORD %>
   port: <%= Figaro.env.SUPABASE_DB_PORT %>
   sslmode: <%= Figaro.env.SUPABASE_SSL_MODE %>

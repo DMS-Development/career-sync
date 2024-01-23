@@ -2,8 +2,8 @@
 #
 # Table name: profiles
 #
-#  id           :bigint           not null, primary key
-#  user_id      :bigint           not null
+#  id           :uuid             not null, primary key
+#  user_id      :uuid             not null
 #  first_name   :string
 #  last_name    :string
 #  phone_number :string

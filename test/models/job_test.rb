@@ -2,7 +2,7 @@
 #
 # Table name: jobs
 #
-#  id           :bigint           not null, primary key
+#  id           :uuid             not null, primary key
 #  title        :string
 #  description  :text
 #  location     :string
